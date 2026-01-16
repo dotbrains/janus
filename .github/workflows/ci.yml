@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main, master, develop ]
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   build:
     name: Build and Test
@@ -57,10 +61,6 @@ jobs:
         DATABASE_USERNAME: test
         DATABASE_PASSWORD: test
       run: mvn test
-
-    - name: Generate test coverage report
-      if: success()
-      run: mvn jacoco:report
 
     - name: Upload test results
       if: always()
