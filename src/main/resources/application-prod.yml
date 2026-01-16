@@ -1,0 +1,44 @@
+spring:
+  # JPA / Hibernate Configuration for Production
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        use_sql_comments: false
+        generate_statistics: false
+
+  # SQL Initialization - Disabled in production
+  sql:
+    init:
+      mode: never
+
+# Server Configuration
+server:
+  servlet:
+    session:
+      cookie:
+        secure: true  # HTTPS only cookies
+        http-only: true
+        same-site: strict
+  error:
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+
+# Logging Configuration - Production
+logging:
+  level:
+    root: WARN
+    com.dotbrains.janus: INFO
+    org.springframework.security: WARN
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: WARN
+
+# SpringDoc OpenAPI - Disabled in production
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false

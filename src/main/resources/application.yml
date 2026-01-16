@@ -1,0 +1,149 @@
+spring:
+  application:
+    name: janus
+  
+  # Database Configuration
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/janus}
+    username: ${DATABASE_USERNAME:janus}
+    password: ${DATABASE_PASSWORD:janus123}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      auto-commit: true
+      pool-name: JanusHikariPool
+  
+  # JPA / Hibernate Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: false
+        jdbc:
+          batch_size: 20
+          fetch_size: 50
+        order_inserts: true
+        order_updates: true
+        default_schema: public
+    open-in-view: false
+  
+  # SQL Initialization
+  sql:
+    init:
+      mode: always
+      platform: postgresql
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+      continue-on-error: false
+      separator: ^
+      comment-prefixes:
+        - --
+  
+  # Security OAuth2 Client
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: ${KEYCLOAK_CLIENT_ID:janus-client}
+            client-secret: ${KEYCLOAK_CLIENT_SECRET:change-me}
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          keycloak:
+            issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/janus}
+            authorization-uri: ${KEYCLOAK_AUTH_URI:http://localhost:8080/realms/janus/protocol/openid-connect/auth}
+            token-uri: ${KEYCLOAK_TOKEN_URI:http://localhost:8080/realms/janus/protocol/openid-connect/token}
+            user-info-uri: ${KEYCLOAK_USER_INFO_URI:http://localhost:8080/realms/janus/protocol/openid-connect/userinfo}
+            jwk-set-uri: ${KEYCLOAK_JWK_URI:http://localhost:8080/realms/janus/protocol/openid-connect/certs}
+            user-name-attribute: preferred_username
+
+# Server Configuration
+server:
+  port: ${SERVER_PORT:9090}
+  servlet:
+    context-path: /
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        secure: false
+        same-site: lax
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Keycloak Admin Configuration
+# Security Best Practices:
+# 1. Use 'janus' realm instead of 'master' realm
+# 2. Create a dedicated admin service account with limited permissions
+# 3. Enable service account for client credentials flow (more secure)
+# 4. Store credentials in environment variables or secrets manager
+keycloak:
+  admin:
+    enabled: ${KEYCLOAK_ADMIN_ENABLED:true}
+    server-url: ${KEYCLOAK_SERVER_URL:http://localhost:8080}
+    realm: ${KEYCLOAK_REALM:janus}  # Use application realm, NOT 'master'
+    client-id: ${KEYCLOAK_ADMIN_CLIENT_ID:admin-cli}
+    
+    # Service Account (Recommended - Client Credentials Flow)
+    use-service-account: ${KEYCLOAK_USE_SERVICE_ACCOUNT:false}
+    # When use-service-account=true, password should be the client secret
+    
+    # User Credentials (Less Secure - Resource Owner Password Flow)
+    username: ${KEYCLOAK_ADMIN_USERNAME:admin}
+    password: ${KEYCLOAK_ADMIN_PASSWORD:admin}
+
+# Janus Application Configuration
+janus:
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000,http://localhost:8080}
+    allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+    allowed-headers: "*"
+    allow-credentials: true
+    max-age: 3600
+  jwt:
+    issuer: ${JWT_ISSUER:http://localhost:9090}
+    expiration: 3600
+  token:
+    enhancement:
+      enabled: true
+      include-user-roles: true
+      include-user-attributes: true
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.dotbrains.janus: DEBUG
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO
+
+# SpringDoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    tryItOutEnabled: true
+    filter: true
+    display-request-duration: true
+  show-actuator: false

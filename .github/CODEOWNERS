@@ -1,0 +1,29 @@
+# This is a template CODEOWNERS file
+# Customize this with your actual GitHub usernames or team names
+
+# Default owners for everything in the repo
+* @dotbrains
+
+# Documentation
+*.md @dotbrains
+docs/ @dotbrains
+
+# Configuration files
+*.yml @dotbrains
+*.yaml @dotbrains
+*.properties @dotbrains
+.env.example @dotbrains
+
+# CI/CD
+.github/ @dotbrains
+
+# Source code
+src/ @dotbrains
+
+# Security-related files
+src/main/java/com/dotbrains/janus/config/SecurityConfig.java @dotbrains
+docs/SECURITY.md @dotbrains
+
+# Database
+src/main/resources/schema.sql @dotbrains
+src/main/resources/data.sql @dotbrains

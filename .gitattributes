@@ -1,0 +1,114 @@
+# ==========================================
+# Git Attributes Configuration
+# ==========================================
+# This file ensures consistent line endings and proper handling of files
+# across different operating systems (Windows, macOS, Linux)
+# ==========================================
+
+# ==========================================
+# Auto detect text files and normalize line endings to LF
+# ==========================================
+* text=auto
+
+# ==========================================
+# Source Code - Explicitly declare text files
+# ==========================================
+*.java text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.properties text eol=lf
+*.sql text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+
+# ==========================================
+# Scripts - Force LF endings
+# ==========================================
+*.sh text eol=lf
+*.fish text eol=lf
+*.bash text eol=lf
+
+# ==========================================
+# Configuration Files
+# ==========================================
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.editorconfig text eol=lf
+Dockerfile text eol=lf
+docker-compose*.yml text eol=lf
+Makefile text eol=lf
+
+# ==========================================
+# Documentation
+# ==========================================
+*.md text eol=lf diff=markdown
+LICENSE text eol=lf
+CHANGELOG text eol=lf
+README text eol=lf
+
+# ==========================================
+# Web Files
+# ==========================================
+*.html text eol=lf diff=html
+*.css text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+
+# ==========================================
+# Binary Files - No line ending normalization
+# ==========================================
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.webp binary
+
+# Java Archives
+*.jar binary
+*.war binary
+*.ear binary
+
+# Certificates and Keys
+*.jks binary
+*.p12 binary
+*.pfx binary
+*.pem binary
+*.crt binary
+*.key binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.rar binary
+*.7z binary
+
+# ==========================================
+# Language Statistics - Exclude Generated Files
+# ==========================================
+target/** linguist-generated=true
+*.class linguist-generated=true
+
+# ==========================================
+# Diff Settings for Specific Files
+# ==========================================
+*.java diff=java
+*.xml diff=xml
+pom.xml diff=xml
+
+# ==========================================
+# Merge Strategies
+# ==========================================
+# Don't attempt to merge certain files
+CHANGELOG.md merge=union
