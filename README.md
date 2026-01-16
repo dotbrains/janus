@@ -1,5 +1,7 @@
 # Janus - Federated Authentication Service 🔐
 
+[![CI](https://github.com/dotbrains/janus/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/janus/actions/workflows/ci.yml)
+[![Docker Build](https://github.com/dotbrains/janus/actions/workflows/docker.yml/badge.svg)](https://github.com/dotbrains/janus/actions/workflows/docker.yml)
 [![Template](https://img.shields.io/badge/Template-Use%20This-blue?style=flat-square)](https://github.com/dotbrains/janus/generate)
 [![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square)](https://adoptium.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-green?style=flat-square)](https://spring.io/projects/spring-boot)
