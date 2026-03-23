@@ -5,7 +5,7 @@
 [![Template](https://img.shields.io/badge/Template-Use%20This-blue?style=flat-square)](https://github.com/dotbrains/janus/generate)
 [![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square)](https://adoptium.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-green?style=flat-square)](https://spring.io/projects/spring-boot)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+[![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
 
 > Named after the Roman god of gates, transitions, and beginnings
 
@@ -565,8 +565,7 @@ Comprehensive documentation is available in the `docs/` directory:
 
 ## 📝 License
 
-This project is licensed under the MIT License.
-
+This project is licensed under the [PolyForm Shield License 1.0.0](https://polyformproject.org/licenses/shield/1.0.0/) — see [LICENSE](LICENSE) for details.
 ## 🙏 Acknowledgments
 
 - Inspired by the original FAS (Federated Authentication Service)
