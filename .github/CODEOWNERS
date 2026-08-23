@@ -2,28 +2,28 @@
 # Customize this with your actual GitHub usernames or team names
 
 # Default owners for everything in the repo
-* @dotbrains
+* @smeltery
 
 # Documentation
-*.md @dotbrains
-docs/ @dotbrains
+*.md @smeltery
+docs/ @smeltery
 
 # Configuration files
-*.yml @dotbrains
-*.yaml @dotbrains
-*.properties @dotbrains
-.env.example @dotbrains
+*.yml @smeltery
+*.yaml @smeltery
+*.properties @smeltery
+.env.example @smeltery
 
 # CI/CD
-.github/ @dotbrains
+.github/ @smeltery
 
 # Source code
-src/ @dotbrains
+src/ @smeltery
 
 # Security-related files
-src/main/java/com/dotbrains/janus/config/SecurityConfig.java @dotbrains
-docs/SECURITY.md @dotbrains
+src/main/java/com/smeltery/janus/config/SecurityConfig.java @smeltery
+docs/SECURITY.md @smeltery
 
 # Database
-src/main/resources/schema.sql @dotbrains
-src/main/resources/data.sql @dotbrains
+src/main/resources/schema.sql @smeltery
+src/main/resources/data.sql @smeltery

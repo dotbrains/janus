@@ -5,7 +5,7 @@ This document describes the testing strategy and test suite for the Janus applic
 ## Test Structure
 
 ```
-src/test/java/com/dotbrains/janus/
+src/test/java/com/smeltery/janus/
 ├── JanusApplicationTest.java           # Application-level tests
 ├── auth/
 │   └── v1/

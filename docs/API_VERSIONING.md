@@ -7,7 +7,7 @@ Janus uses **package-based API versioning** combined with URL path versioning to
 ## Package Structure
 
 ```
-src/main/java/com/dotbrains/janus/
+src/main/java/com/smeltery/janus/
 ├── api/
 │   ├── v1/
 │   │   └── AuthAPI.java          # v1 API interface
@@ -29,16 +29,16 @@ src/main/java/com/dotbrains/janus/
 
 ### 1. **Package-Based Organization**
 Each API version has its own package namespace:
-- `com.dotbrains.janus.api.v1` - Version 1 API interfaces
-- `com.dotbrains.janus.auth.v1` - Version 1 controllers
-- `com.dotbrains.janus.api.v2` - Version 2 API interfaces (when created)
-- `com.dotbrains.janus.auth.v2` - Version 2 controllers (when created)
+- `com.smeltery.janus.api.v1` - Version 1 API interfaces
+- `com.smeltery.janus.auth.v1` - Version 1 controllers
+- `com.smeltery.janus.api.v2` - Version 2 API interfaces (when created)
+- `com.smeltery.janus.auth.v2` - Version 2 controllers (when created)
 
 ### 2. **Interface-Driven Design**
 API interfaces define the contract with `@RequestMapping`:
 
 ```java
-package com.dotbrains.janus.api.v1;
+package com.smeltery.janus.api.v1;
 
 @Tag(name = "Authentication v1")
 @RequestMapping("/api/v1/auth")
@@ -53,9 +53,9 @@ public interface AuthAPI {
 Controllers implement interfaces without duplicating annotations:
 
 ```java
-package com.dotbrains.janus.auth.v1;
+package com.smeltery.janus.auth.v1;
 
-import com.dotbrains.janus.api.v1.AuthAPI;
+import com.smeltery.janus.api.v1.AuthAPI;
 
 @RestController
 public class AuthController implements AuthAPI {
@@ -91,22 +91,22 @@ GET  /api/v1/auth/health    - Health check
 
 ### Files
 
-- **Interface**: `src/main/java/com/dotbrains/janus/api/v1/AuthAPI.java`
-- **Controller**: `src/main/java/com/dotbrains/janus/auth/v1/AuthController.java`
+- **Interface**: `src/main/java/com/smeltery/janus/api/v1/AuthAPI.java`
+- **Controller**: `src/main/java/com/smeltery/janus/auth/v1/AuthController.java`
 
 ## Adding a New Version (v2)
 
 ### Step 1: Create Packages
 
 ```bash
-mkdir -p src/main/java/com/dotbrains/janus/api/v2
-mkdir -p src/main/java/com/dotbrains/janus/auth/v2
+mkdir -p src/main/java/com/smeltery/janus/api/v2
+mkdir -p src/main/java/com/smeltery/janus/auth/v2
 ```
 
 ### Step 2: Create v2 API Interface
 
 ```java
-package com.dotbrains.janus.api.v2;
+package com.smeltery.janus.api.v2;
 
 @Tag(name = "Authentication v2", description = "Enhanced authentication with new features")
 @RequestMapping("/api/v2/auth")
@@ -126,9 +126,9 @@ public interface AuthAPI {
 ### Step 3: Create v2 Controller
 
 ```java
-package com.dotbrains.janus.auth.v2;
+package com.smeltery.janus.auth.v2;
 
-import com.dotbrains.janus.api.v2.AuthAPI;
+import com.smeltery.janus.api.v2.AuthAPI;
 
 @RestController
 public class AuthController implements AuthAPI {
@@ -287,8 +287,8 @@ When ready to remove v1:
 
 4. After migration period, delete v1 packages:
    ```bash
-   rm -rf src/main/java/com/dotbrains/janus/api/v1
-   rm -rf src/main/java/com/dotbrains/janus/auth/v1
+   rm -rf src/main/java/com/smeltery/janus/api/v1
+   rm -rf src/main/java/com/smeltery/janus/auth/v1
    ```
 
 5. Remove v1 security rules from `SecurityConfig.java`

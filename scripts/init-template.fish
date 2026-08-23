@@ -111,7 +111,7 @@ echo ""
 
 # Convert package name to directory path
 set PACKAGE_PATH (string replace -a '.' '/' $PACKAGE_NAME)
-set OLD_PACKAGE_PATH "com/dotbrains/janus"
+set OLD_PACKAGE_PATH "com/smeltery/janus"
 
 # Backup original files
 echo "$BLUE""[1/8]$NC Creating backup..."
@@ -127,13 +127,13 @@ rm -rf src/main/java/com
 
 # Update package declarations in Java files
 echo "$BLUE""[3/8]$NC Updating package declarations..."
-find src/main/java -type f -name "*.java" -exec sed -i.bak "s/package com\.dotbrains\.janus/package $PACKAGE_NAME/g" {} \;
-find src/main/java -type f -name "*.java" -exec sed -i.bak "s/import com\.dotbrains\.janus/import $PACKAGE_NAME/g" {} \;
+find src/main/java -type f -name "*.java" -exec sed -i.bak "s/package com\.smeltery\.janus/package $PACKAGE_NAME/g" {} \;
+find src/main/java -type f -name "*.java" -exec sed -i.bak "s/import com\.smeltery\.janus/import $PACKAGE_NAME/g" {} \;
 find src/main/java -type f -name "*.java.bak" -delete
 
 # Update pom.xml
 echo "$BLUE""[4/8]$NC Updating pom.xml..."
-sed -i.bak "s/<groupId>com\.dotbrains<\/groupId>/<groupId>$COMPANY_NAME<\/groupId>/g" pom.xml
+sed -i.bak "s/<groupId>com\.smeltery<\/groupId>/<groupId>$COMPANY_NAME<\/groupId>/g" pom.xml
 sed -i.bak "s/<artifactId>janus<\/artifactId>/<artifactId>$PROJECT_NAME<\/artifactId>/g" pom.xml
 set PROJECT_NAME_TITLE (string replace -a '-' ' ' $PROJECT_NAME | string replace -r '\w+' (string replace -r '(.)(.*)'  -- (string upper '$1') (string lower '$2')))
 sed -i.bak "s/<name>Janus<\/name>/<name>$PROJECT_NAME_TITLE<\/name>/g" pom.xml
@@ -143,7 +143,7 @@ rm pom.xml.bak
 echo "$BLUE""[5/8]$NC Updating application.yml..."
 find src/main/resources -name "application*.yml" -exec sed -i.bak "s/name: janus/name: $PROJECT_NAME/g" {} \;
 find src/main/resources -name "application*.yml" -exec sed -i.bak "s/janus/$DB_NAME/g" {} \;
-find src/main/resources -name "application*.yml" -exec sed -i.bak "s/com\.dotbrains\.janus/$PACKAGE_NAME/g" {} \;
+find src/main/resources -name "application*.yml" -exec sed -i.bak "s/com\.smeltery\.janus/$PACKAGE_NAME/g" {} \;
 find src/main/resources -name "application*.yml" -exec sed -i.bak "s/port: 9090/port: $SERVER_PORT/g" {} \;
 set POOL_NAME (string replace -r '^(.)' -- (string upper '$1') $PROJECT_NAME)"HikariPool"
 find src/main/resources -name "application*.yml" -exec sed -i.bak "s/pool-name: JanusHikariPool/pool-name: $POOL_NAME/g" {} \;
@@ -168,7 +168,7 @@ rm .env.example.bak
 
 # Update SQL files
 echo "$BLUE""[8/8]$NC Updating SQL files..."
-find src/main/resources -name "*.sql" -exec sed -i.bak "s/@dotbrains\.com/@$COMPANY_NAME.com/g" {} \;
+find src/main/resources -name "*.sql" -exec sed -i.bak "s/@smeltery\.com/@$COMPANY_NAME.com/g" {} \;
 find src/main/resources -name "*.bak" -delete
 
 echo ""

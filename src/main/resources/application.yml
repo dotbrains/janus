@@ -127,7 +127,7 @@ janus:
 logging:
   level:
     root: INFO
-    com.dotbrains.janus: DEBUG
+    com.smeltery.janus: DEBUG
     org.springframework.security: INFO
     org.springframework.web: INFO
     org.hibernate.SQL: INFO

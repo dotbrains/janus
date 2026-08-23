@@ -30,7 +30,7 @@ server:
 logging:
   level:
     root: WARN
-    com.dotbrains.janus: INFO
+    com.smeltery.janus: INFO
     org.springframework.security: WARN
     org.springframework.web: WARN
     org.hibernate.SQL: WARN

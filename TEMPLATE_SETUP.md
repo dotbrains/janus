@@ -184,7 +184,7 @@ If you prefer to customize manually:
 ### 1. Rename Java Packages
 
 **IDE Method (IntelliJ IDEA):**
-1. Right-click on `com.dotbrains.janus` package
+1. Right-click on `com.smeltery.janus` package
 2. Select "Refactor" → "Rename"
 3. Enter your new package name (e.g., `com.example.authservice`)
 4. Click "Refactor"
@@ -195,13 +195,13 @@ If you prefer to customize manually:
 mkdir -p src/main/java/com/example/authservice
 
 # Copy files
-cp -r src/main/java/com/dotbrains/janus/* src/main/java/com/example/authservice/
+cp -r src/main/java/com/smeltery/janus/* src/main/java/com/example/authservice/
 
 # Update package declarations
-find src/main/java -name "*.java" -exec sed -i '' 's/com.dotbrains.janus/com.example.authservice/g' {} +
+find src/main/java -name "*.java" -exec sed -i '' 's/com.smeltery.janus/com.example.authservice/g' {} +
 
 # Remove old package
-rm -rf src/main/java/com/dotbrains
+rm -rf src/main/java/com/smeltery
 ```
 
 ### 2. Update pom.xml

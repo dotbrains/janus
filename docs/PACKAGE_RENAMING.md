@@ -1,6 +1,6 @@
 # Package Renaming Guide
 
-This guide provides detailed instructions for renaming the Java package structure from `com.dotbrains.janus` to your own package name.
+This guide provides detailed instructions for renaming the Java package structure from `com.smeltery.janus` to your own package name.
 
 ## Quick Start
 
@@ -19,7 +19,7 @@ For manual renaming, follow the instructions below.
 IntelliJ IDEA provides powerful refactoring tools that handle package renaming safely.
 
 1. **Open the project** in IntelliJ IDEA
-2. **Navigate** to `src/main/java/com/dotbrains/janus` in the Project view
+2. **Navigate** to `src/main/java/com/smeltery/janus` in the Project view
 3. **Right-click** on the `janus` package
 4. **Select** "Refactor" → "Rename" (or press Shift+F6)
 5. **Enter** your new package name (e.g., `authservice`)
@@ -29,9 +29,9 @@ IntelliJ IDEA provides powerful refactoring tools that handle package renaming s
 
 #### For Multiple Levels
 
-If you want to change `com.dotbrains` to `com.example`:
+If you want to change `com.smeltery` to `com.example`:
 
-1. Right-click on `dotbrains` package
+1. Right-click on `smeltery` package
 2. Select "Refactor" → "Rename"
 3. Enter `example`
 4. Repeat the process for the final package name
@@ -52,7 +52,7 @@ VS Code with Java extensions can also handle refactoring:
 
 1. **Open** the project in Eclipse
 2. **Navigate** to the package in Package Explorer
-3. **Right-click** on `com.dotbrains.janus`
+3. **Right-click** on `com.smeltery.janus`
 4. **Select** "Refactor" → "Rename"
 5. **Enter** your new package name
 6. **Check** "Update references"
@@ -71,14 +71,14 @@ Use this method if you prefer command-line tools or don't have an IDE.
 ```bash
 # 1. Define your new package name
 NEW_PACKAGE="com.example.authservice"
-OLD_PACKAGE="com.dotbrains.janus"
+OLD_PACKAGE="com.smeltery.janus"
 
 # 2. Create new package directory structure
 NEW_PATH=$(echo "$NEW_PACKAGE" | sed 's/\./\//g')
 mkdir -p "src/main/java/$NEW_PATH"
 
 # 3. Copy files to new location
-cp -r src/main/java/com/dotbrains/janus/* "src/main/java/$NEW_PATH/"
+cp -r src/main/java/com/smeltery/janus/* "src/main/java/$NEW_PATH/"
 
 # 4. Update package declarations in Java files
 find src/main/java -type f -name "*.java" -exec sed -i.bak \
@@ -92,7 +92,7 @@ find src/main/java -type f -name "*.java" -exec sed -i.bak \
 find src/main/java -name "*.bak" -delete
 
 # 7. Remove old package directory
-rm -rf src/main/java/com/dotbrains
+rm -rf src/main/java/com/smeltery
 
 # 8. Update application.yml logging configuration
 find src/main/resources -name "application*.yml" -exec sed -i.bak \
@@ -182,7 +182,7 @@ Ensure all tests pass.
 
 ```bash
 # Search for old package name
-grep -r "com.dotbrains.janus" src/
+grep -r "com.smeltery.janus" src/
 ```
 
 Should return no results (or only in comments).
@@ -222,7 +222,7 @@ curl http://localhost:9090/api/v1/auth/health
 
 **Solution**: Check application.yml for hardcoded package names:
 ```bash
-grep -r "com.dotbrains.janus" src/main/resources/
+grep -r "com.smeltery.janus" src/main/resources/
 ```
 
 ### Issue: Tests Fail After Renaming
@@ -230,7 +230,7 @@ grep -r "com.dotbrains.janus" src/main/resources/
 **Solution**: Test files need the same package renaming:
 ```bash
 find src/test/java -name "*.java" -exec sed -i '' \
-  's/com.dotbrains.janus/com.example.authservice/g' {} \;
+  's/com.smeltery.janus/com.example.authservice/g' {} \;
 ```
 
 ## Package Naming Conventions

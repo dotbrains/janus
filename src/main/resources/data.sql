@@ -1,13 +1,13 @@
 -- Insert sample users
 INSERT INTO users (keycloak_id, username, email, first_name, last_name, department, job_title, phone_number, employee_id, is_active)
 VALUES
-    ('kc-user-001', 'john.doe', 'john.doe@dotbrains.com', 'John', 'Doe', 'Engineering', 'Senior Software Engineer', '+1-555-0101', 'EMP001', true),
-    ('kc-user-002', 'jane.smith', 'jane.smith@dotbrains.com', 'Jane', 'Smith', 'Product', 'Product Manager', '+1-555-0102', 'EMP002', true),
-    ('kc-user-003', 'bob.johnson', 'bob.johnson@dotbrains.com', 'Bob', 'Johnson', 'Engineering', 'DevOps Engineer', '+1-555-0103', 'EMP003', true),
-    ('kc-user-004', 'alice.williams', 'alice.williams@dotbrains.com', 'Alice', 'Williams', 'Design', 'UX Designer', '+1-555-0104', 'EMP004', true),
-    ('kc-user-005', 'charlie.brown', 'charlie.brown@dotbrains.com', 'Charlie', 'Brown', 'Engineering', 'Junior Developer', '+1-555-0105', 'EMP005', true),
-    ('kc-user-006', 'diana.prince', 'diana.prince@dotbrains.com', 'Diana', 'Prince', 'Security', 'Security Architect', '+1-555-0106', 'EMP006', true),
-    ('kc-user-007', 'admin.user', 'admin@dotbrains.com', 'Admin', 'User', 'IT', 'System Administrator', '+1-555-0100', 'EMP000', true)^
+    ('kc-user-001', 'john.doe', 'john.doe@smeltery.com', 'John', 'Doe', 'Engineering', 'Senior Software Engineer', '+1-555-0101', 'EMP001', true),
+    ('kc-user-002', 'jane.smith', 'jane.smith@smeltery.com', 'Jane', 'Smith', 'Product', 'Product Manager', '+1-555-0102', 'EMP002', true),
+    ('kc-user-003', 'bob.johnson', 'bob.johnson@smeltery.com', 'Bob', 'Johnson', 'Engineering', 'DevOps Engineer', '+1-555-0103', 'EMP003', true),
+    ('kc-user-004', 'alice.williams', 'alice.williams@smeltery.com', 'Alice', 'Williams', 'Design', 'UX Designer', '+1-555-0104', 'EMP004', true),
+    ('kc-user-005', 'charlie.brown', 'charlie.brown@smeltery.com', 'Charlie', 'Brown', 'Engineering', 'Junior Developer', '+1-555-0105', 'EMP005', true),
+    ('kc-user-006', 'diana.prince', 'diana.prince@smeltery.com', 'Diana', 'Prince', 'Security', 'Security Architect', '+1-555-0106', 'EMP006', true),
+    ('kc-user-007', 'admin.user', 'admin@smeltery.com', 'Admin', 'User', 'IT', 'System Administrator', '+1-555-0100', 'EMP000', true)^
 
 -- Insert user roles
 INSERT INTO user_roles (user_id, role_name)

@@ -27,7 +27,7 @@
     </parent>
 
     <!-- CUSTOMIZE: Update with your organization/company name -->
-    <groupId>com.dotbrains</groupId>
+    <groupId>com.smeltery</groupId>
     
     <!-- CUSTOMIZE: Update with your project name (lowercase, hyphens for spaces) -->
     <artifactId>janus</artifactId>

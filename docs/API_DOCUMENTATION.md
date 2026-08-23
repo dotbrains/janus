@@ -18,7 +18,7 @@ The `/api` package contains versioned subpackages (e.g., `/api/v1`, `/api/v2`) w
 
 **Example: `api/v1/AuthAPI.java`**
 ```java
-package com.dotbrains.janus.api.v1;
+package com.smeltery.janus.api.v1;
 
 @Tag(name = "Authentication v1", description = "OAuth2/OIDC authentication endpoints")
 @RequestMapping("/api/v1/auth")
@@ -39,9 +39,9 @@ public interface AuthAPI {
 Controllers are organized in versioned packages and implement the corresponding API interface:
 
 ```java
-package com.dotbrains.janus.auth.v1;
+package com.smeltery.janus.auth.v1;
 
-import com.dotbrains.janus.api.v1.AuthAPI;
+import com.smeltery.janus.api.v1.AuthAPI;
 
 @RestController
 public class AuthController implements AuthAPI {
@@ -131,7 +131,7 @@ public Map<String, Object> getEnhancedToken(OidcUser user) {
 ### Step 1: Create Interface in Versioned `/api/v1` Package
 
 ```java
-package com.dotbrains.janus.api.v1;
+package com.smeltery.janus.api.v1;
 
 import io.swagger.v3.oas.annotations.*;
 
@@ -165,9 +165,9 @@ public interface UserAPI {
 ### Step 2: Implement in Versioned Controller Package
 
 ```java
-package com.dotbrains.janus.user.v1;
+package com.smeltery.janus.user.v1;
 
-import com.dotbrains.janus.api.v1.UserAPI;
+import com.smeltery.janus.api.v1.UserAPI;
 
 @RestController
 public class UserController implements UserAPI {

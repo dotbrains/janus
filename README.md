@@ -1,8 +1,8 @@
 # Janus - Federated Authentication Service 🔐
 
-[![CI](https://github.com/dotbrains/janus/actions/workflows/ci.yml/badge.svg)](https://github.com/dotbrains/janus/actions/workflows/ci.yml)
-[![Docker Build](https://github.com/dotbrains/janus/actions/workflows/docker.yml/badge.svg)](https://github.com/dotbrains/janus/actions/workflows/docker.yml)
-[![Template](https://img.shields.io/badge/Template-Use%20This-blue?style=flat-square)](https://github.com/dotbrains/janus/generate)
+[![CI](https://github.com/smeltery/janus/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/janus/actions/workflows/ci.yml)
+[![Docker Build](https://github.com/smeltery/janus/actions/workflows/docker.yml/badge.svg)](https://github.com/smeltery/janus/actions/workflows/docker.yml)
+[![Template](https://img.shields.io/badge/Template-Use%20This-blue?style=flat-square)](https://github.com/smeltery/janus/generate)
 [![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square)](https://adoptium.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-green?style=flat-square)](https://spring.io/projects/spring-boot)
 [![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
@@ -17,7 +17,7 @@ Janus is a production-ready federated authentication service that acts as a gate
 
 ### ⚡ Quick Start with This Template
 
-1. **Click "Use this template"** button above or [click here](https://github.com/dotbrains/janus/generate)
+1. **Click "Use this template"** button above or [click here](https://github.com/smeltery/janus/generate)
 2. **Clone your new repository**
 3. **Run the initialization script:**
    ```bash
@@ -189,7 +189,7 @@ curl -X POST http://localhost:9090/api/v1/users/kc-user-001/deactivate \
 
 ```
 janus/
-├── src/main/java/com/dotbrains/janus/
+├── src/main/java/com/smeltery/janus/
 │   ├── JanusApplication.java           # Main application class
 │   ├── api/
 │   │   └── v1/

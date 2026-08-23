@@ -293,7 +293,7 @@ data:
 
 ## 📧 Reporting Security Issues
 
-**Email**: security@dotbrains.com  
+**Email**: security@smeltery.com  
 **Do NOT** create public GitHub issues for vulnerabilities.
 
 ---

@@ -134,7 +134,7 @@
       "username": "admin",
       "enabled": true,
       "emailVerified": true,
-      "email": "admin@dotbrains.com",
+      "email": "admin@smeltery.com",
       "firstName": "Admin",
       "lastName": "User",
       "credentials": [
@@ -150,7 +150,7 @@
       "username": "john.doe",
       "enabled": true,
       "emailVerified": true,
-      "email": "john.doe@dotbrains.com",
+      "email": "john.doe@smeltery.com",
       "firstName": "John",
       "lastName": "Doe",
       "credentials": [
@@ -166,7 +166,7 @@
       "username": "jane.smith",
       "enabled": true,
       "emailVerified": true,
-      "email": "jane.smith@dotbrains.com",
+      "email": "jane.smith@smeltery.com",
       "firstName": "Jane",
       "lastName": "Smith",
       "credentials": [
